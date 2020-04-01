@@ -1,6 +1,6 @@
-'''
 import json
 from Debt_Simplification import *
+from copy import deepcopy
 
 with open('PaymentFlexMSG.json') as f:
     basicFormat = json.load(f)
@@ -35,27 +35,10 @@ payment = minCashFlowRec(amount, [])
 print(payment)
 
 for i in payment:
-    copyFlexMSG = flexMSG
+    copyFlexMSG = deepcopy(flexMSG)
     copyFlexMSG["contents"][0]["text"] = str(i[0]) + " needs to pay " + str(i[2])
     copyFlexMSG["contents"][1]["text"] = str(i[1]) + "元"
-    #print(dict(copyFlexMSG))
     basicFormat["body"]["contents"].append(copyFlexMSG)
-    #print( json.dumps(basicFormat,indent=4,sort_keys=True) )
 
 print("\n\n\n")
-print( json.dumps(basicFormat,indent=4,sort_keys=True) )
-'''
-
-aa = {"aa":100, "bb":00}
-
-ll = [["asdf","1111"],["asdf","2222"],["asdfe","3333"]]
-
-result = [{"zz":50,"yy":81}]
-for i in ll:
-    newaa = aa
-    newaa["aa"] = i[1]
-    result.append(dict(newaa))
-    print(result)
-
-print("\n\n\n")    
-print(result)
+print( json.dumps(basicFormat,indent=4) )
