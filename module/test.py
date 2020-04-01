@@ -34,11 +34,11 @@ payment = minCashFlowRec(amount, [])
 print(payment)
 
 for i in payment:
-    flexMSG = flexMSG
-    flexMSG["contents"][0]["text"] = str(i[0]) + " needs to pay " + str(i[2])
-    flexMSG["contents"][1]["text"] = str(i[1]) + "元"
-    #print(dict(flexMSG))
-    basicFormat["body"]["contents"].append(flexMSG)
+    copyFlexMSG = flexMSG
+    copyFlexMSG["contents"][0]["text"] = str(i[0]) + " needs to pay " + str(i[2])
+    copyFlexMSG["contents"][1]["text"] = str(i[1]) + "元"
+    #print(dict(copyFlexMSG))
+    basicFormat["body"]["contents"].append(copyFlexMSG)
     #print( json.dumps(basicFormat,indent=4,sort_keys=True) )
 
 print("\n\n\n")
