@@ -1,3 +1,4 @@
+'''
 import json
 from Debt_Simplification import *
 
@@ -10,7 +11,7 @@ flexMSG = {
         "contents": [
           {
             "type": "text",
-            "text": "",
+            "text": "arrrrrr",
             "align": "center",
             "gravity": "center"
           },
@@ -43,3 +44,18 @@ for i in payment:
 
 print("\n\n\n")
 print( json.dumps(basicFormat,indent=4,sort_keys=True) )
+'''
+
+aa = {"aa":100, "bb":00}
+
+ll = [["asdf","1111"],["asdf","2222"],["asdfe","3333"]]
+
+result = [{"zz":50,"yy":81}]
+for i in ll:
+    newaa = aa
+    newaa["aa"] = i[1]
+    result.append(dict(newaa))
+    print(result)
+
+print("\n\n\n")    
+print(result)
