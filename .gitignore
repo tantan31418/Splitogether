@@ -167,3 +167,6 @@ dmypy.json
 # Pyre type checker
 
 # End of https://www.gitignore.io/api/django,python
+settings.json
+.ngrokadd.txt.swp
+ngrokadd.txt
