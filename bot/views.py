@@ -10,7 +10,7 @@ from linebot.exceptions import (
     InvalidSignatureError, LineBotApiError
 )
 from linebot.models import *
-from module/Debt_Simplification import *
+from module.Debt_Simplification import *
 
 
 
