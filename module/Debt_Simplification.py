@@ -69,6 +69,7 @@ def minCashFlowRec(amount,payment):
 	return minCashFlowRec(amount,payment) 
 
 
+'''
 amount = {
 	"userID1": 5000,
 	"userID2": 3000,
@@ -87,3 +88,4 @@ for i in payment:
 	TextArray = ' '.join( [TextArray, "Person", str(i[0]), "pays ", str(i[1]),"to" ,"Person" ,str(i[2]), '\n' ] )
 
 print (TextArray)
+'''

@@ -1,45 +1,45 @@
 import json
-
-flexMSG = {
-    "type": "box",
-    "layout": "horizontal",
-    "contents": [
-    {
-        "type": "text",
-        "text": "阮棠欠佐任",
-        "align": "center",
-        "gravity": "center"
-    },
-    {
-        "type": "text",
-        "text": " 1000元",
-        "gravity": "center"
-    },
-    {
-        "type": "button",
-        "action": {
-        "type": "postback",
-        "label": "clear1",
-        "data": "clearPayment#1"
-        },
-        "style": "primary"
-    }
-    ],
-    "borderWidth": "5px"
-}
-
-
-
-
-
-
-
+from Debt_Simplification import *
 
 with open('PaymentFlexMSG.json') as f:
-    type_size_header = json.load(f)
+    basicFormat = json.load(f)
 
-type_size_header["body"]["contents"].append(dict(flexMSG))
+flexMSG = {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "",
+            "align": "center",
+            "gravity": "center"
+          },
+          {
+            "type": "text",
+            "text": "",
+            "gravity": "center",
+            "align": "end"
+          }
+        ],
+        "borderWidth": "5px"
+      }
 
+amount = {
+	"userID1": 5000,
+	"userID2": 3000,
+	"userID3": -4000,
+	"userID4": -4000
+    }
+payment = minCashFlowRec(amount, [])
+print(payment)
 
+for i in payment:
+    flexMSG = flexMSG
+    flexMSG["contents"][0]["text"] = str(i[0]) + " needs to pay " + str(i[2])
+    flexMSG["contents"][1]["text"] = str(i[1]) + "元"
+    #print(dict(flexMSG))
+    basicFormat["body"]["contents"].append(flexMSG)
+    #print( json.dumps(basicFormat,indent=4,sort_keys=True) )
 
-print( json.dumps(type_size_header,indent=4,sort_keys=True) )
+print("\n\n\n")
+print( json.dumps(basicFormat,indent=4,sort_keys=True) )
