@@ -82,7 +82,8 @@ for i in amount:
 payment = minCashFlowRec(amount, []) 
 print(payment)
 
+TextArray = ""
 for i in payment:
-	print("Person " , i[0] , " pays " , i[1]
-		, " to " , "Person " , i[2]) 
+	TextArray = ' '.join( [TextArray, "Person", str(i[0]), "pays ", str(i[1]),"to" ,"Person" ,str(i[2]), '\n' ] )
 
+print (TextArray)

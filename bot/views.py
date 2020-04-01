@@ -10,6 +10,7 @@ from linebot.exceptions import (
     InvalidSignatureError, LineBotApiError
 )
 from linebot.models import *
+from module import Debt_Simplification
 
 
 
@@ -31,8 +32,19 @@ def callback(request):
             return HttpResponseBadRequest()
         for event in events:
             if isinstance(event, MessageEvent):
+                amount = {"userID1": 5000, "userID2": 3000,	"userID3": -4000, "userID4": -4000}
+                payment = minCashFlowRec(amount, [])
+                TextArray = ""
+                for i in payment:
+                    TextArray = ' '.join( [TextArray, "Person", str(i[0]), "pays ", str(i[1]),"to" ,"Person" ,str(i[2]), '\n' ] )
+                line_bot_api.reply_message(event.reply_token, [TextSendMessage(
+                        text=TextArray), TextSendMessage(text='echo')])
+                '''
                 line_bot_api.reply_message(event.reply_token, [TextSendMessage(
                         text=event.message.text), TextSendMessage(text='echo')])
+                '''
+
+
         return HttpResponse()
     else:
         return HttpResponseBadRequest()
