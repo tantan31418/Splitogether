@@ -10,8 +10,9 @@ from linebot.exceptions import (
     InvalidSignatureError, LineBotApiError
 )
 from linebot.models import *
-from module import Debt_Simplification
 
+from module import Debt_Simplification
+from module import send_func
 
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -37,12 +38,9 @@ def callback(request):
                 TextArray = ""
                 for i in payment:
                     TextArray = ' '.join( [TextArray, "Person", str(i[0]), "pays ", str(i[1]),"to" ,"Person" ,str(i[2]), '\n' ] )
-                line_bot_api.reply_message(event.reply_token, [TextSendMessage(
-                        text=TextArray), TextSendMessage(text='echo')])
-                '''
-                line_bot_api.reply_message(event.reply_token, [TextSendMessage(
-                        text=event.message.text), TextSendMessage(text='echo')])
-                '''
+                
+                line_bot_api.reply_message(event.reply_token, [TextSendMessage(text=TextArray), TextSendMessage(text='echo')])
+                
 
 
         return HttpResponse()
