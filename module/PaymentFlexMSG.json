@@ -1,30 +1,34 @@
 {
-  "type": "bubble",
-  "size": "giga",
-  "header": {
-    "type": "box",
-    "layout": "horizontal",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Payments",
-        "size": "xxl",
-        "margin": "none",
-        "weight": "bold",
-        "style": "normal",
-        "align": "center",
-        "gravity": "center"
+  "type": "flex",
+  "altText": "this is a flex message",
+  "contents": {
+    "type": "bubble",
+    "size": "giga",
+    "header": {
+      "type": "box",
+      "layout": "horizontal",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Payments",
+          "size": "xxl",
+          "margin": "none",
+          "weight": "bold",
+          "style": "normal",
+          "align": "center",
+          "gravity": "center"
+        }
+      ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": []
+    },
+    "styles": {
+      "hero": {
+        "separator": true
       }
-    ]
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": []
-  },
-  "styles": {
-    "hero": {
-      "separator": true
     }
   }
 }

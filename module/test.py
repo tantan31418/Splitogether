@@ -38,7 +38,7 @@ for i in payment:
     copyFlexMSG = deepcopy(flexMSG)
     copyFlexMSG["contents"][0]["text"] = str(i[0]) + " needs to pay " + str(i[2])
     copyFlexMSG["contents"][1]["text"] = str(i[1]) + "元"
-    basicFormat["body"]["contents"].append(copyFlexMSG)
+    basicFormat["contents"]["body"]["contents"].append(copyFlexMSG)
 
 print("\n\n\n")
 print( json.dumps(basicFormat,indent=4) )
